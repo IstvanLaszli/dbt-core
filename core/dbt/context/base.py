@@ -79,12 +79,21 @@ def get_itertools_module_context() -> Dict[str, Any]:
     return {name: getattr(itertools, name) for name in context_exports}
 
 
+def get_os_module_context() -> Dict[str, Any]:
+    context_exports = [
+        "listdir",
+    ]
+
+    return {name: getattr(os, name) for name in context_exports}
+
+
 def get_context_modules() -> Dict[str, Dict[str, Any]]:
     return {
         "pytz": get_pytz_module_context(),
         "datetime": get_datetime_module_context(),
         "re": get_re_module_context(),
         "itertools": get_itertools_module_context(),
+        "os": get_os_module_context(),
     }
 
 
